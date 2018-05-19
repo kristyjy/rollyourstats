@@ -1,14 +1,23 @@
 <template>
   <div id="app">
-    test
+    <Intro />
+    <Stats />
   </div>
 </template>
 
 <script>
+import '../node_modules/normalize.css/normalize.css';
+import './css/variables.css';
+import store from './store';
+import Intro from './components/Intro.vue';
+import Stats from './components/Stats.vue';
 
 export default {
   name: 'app',
+  store,
   components: {
+    Intro,
+    Stats
   }
 }
 </script>
@@ -25,7 +34,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   font-family: var(--font-primary), sans-serif;
   font-size: 62.5%;
-  color: #333;
+  color: var(--dark);
 }
 
 html,
@@ -42,8 +51,8 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-heading), cursive;
   font-weight: normal;
   text-align: center;
+  margin: 0 0 1rem;
 }
 </style>
