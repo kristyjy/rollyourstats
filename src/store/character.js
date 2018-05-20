@@ -2,6 +2,7 @@ const state = {
   class: '',
   race: '',
   background: '',
+  alignment: '',
   str: 0,
   dex: 0,
   con: 0,
@@ -29,13 +30,15 @@ const getters = {
   },
   getBackground(state) {
     return state.background;
+  },
+  getAlignment(state) {
+    return state.alignment;
   }
 }
 
 const actions = {
   // Expects array | Example: [10, 12, 13, 14, 15, 18]
   setStats({commit}, stats) {
-    console.log('test');
     commit('setStats', stats);
   },
   setClass({commit}, classStr) {
@@ -46,6 +49,9 @@ const actions = {
   },
   setBackground({commit}, background) {
     commit('setBackground', background);
+  },
+  setAlignment({commit}, alignment) {
+    commit('setAlignment', alignment);
   }
 }
 
@@ -66,6 +72,9 @@ const mutations = {
   },
   setBackground(state, background) {
     state.background = background;
+  },
+  setAlignment(state, alignment) {
+    state.alignment = alignment;
   }
 }
 
