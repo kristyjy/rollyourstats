@@ -23,3 +23,19 @@ function rollStat() {
 export function rollD(sides) {
   return Math.floor(Math.random() * sides) + 1;
 }
+
+export function getRandomArrayItem(array) {
+  return array[Math.floor(Math.random() * (array.length - 1))];
+}
+
+export function getRandomBackground(backgrounds) {
+  let background = getRandomArrayItem(backgrounds);
+  return {
+    name: background.name,
+    feature: background.feature,
+    trait: getRandomArrayItem(background.traits),
+    ideal: getRandomArrayItem(background.ideals),
+    bond: getRandomArrayItem(background.bonds),
+    flaw: getRandomArrayItem(background.flaws)
+  }
+}

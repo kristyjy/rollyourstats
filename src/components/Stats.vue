@@ -1,12 +1,20 @@
 <template>
   <section>
-    <ul>
-      <li>{{ stat.STR }}: {{ getStats.str }} ({{ m.getAbilityMod(getStats.str)}})</li>
-      <li>{{ stat.DEX }}: {{ getStats.dex }} ({{ m.getAbilityMod(getStats.dex)}})</li>
-      <li>{{ stat.CON }}: {{ getStats.con }} ({{ m.getAbilityMod(getStats.con)}})</li>
-      <li>{{ stat.INT }}: {{ getStats.int }} ({{ m.getAbilityMod(getStats.int)}})</li>
-      <li>{{ stat.WIS }}: {{ getStats.wis }} ({{ m.getAbilityMod(getStats.wis)}})</li>
-      <li>{{ stat.CHA }}: {{ getStats.cha }} ({{ m.getAbilityMod(getStats.cha)}})</li>
+    <ul v-if="stats.str > 0">
+      <li>{{ stat.STR }}: {{ stats.str }} ({{ m.getAbilityMod(stats.str)}})</li>
+      <li>{{ stat.DEX }}: {{ stats.dex }} ({{ m.getAbilityMod(stats.dex)}})</li>
+      <li>{{ stat.CON }}: {{ stats.con }} ({{ m.getAbilityMod(stats.con)}})</li>
+      <li>{{ stat.INT }}: {{ stats.int }} ({{ m.getAbilityMod(stats.int)}})</li>
+      <li>{{ stat.WIS }}: {{ stats.wis }} ({{ m.getAbilityMod(stats.wis)}})</li>
+      <li>{{ stat.CHA }}: {{ stats.cha }} ({{ m.getAbilityMod(stats.cha)}})</li>
+    </ul>
+    <ul v-if="background">
+      <li>Background: {{ background.name }}</li>
+      <li v-if="background.name"><strong>{{ background.feature.name }}:</strong> {{ background.feature.description }}</li>
+      <li><strong>Personality Trait:</strong> {{ background.trait }}</li>
+      <li><strong>Ideal:</strong> {{ background.ideal }}</li>
+      <li><strong>Bond:</strong> {{ background.bond }}</li>
+      <li><strong>Flaw:</strong> {{ background.flaw }}</li>
     </ul>
   </section>
 </template>
@@ -25,12 +33,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'getStats',
-      'getClass',
-      'getRace',
-      'getBackground'
-    ])
+    ...mapGetters({
+      stats: 'getStats',
+      classStr: 'getClass',
+      race: 'getRace',
+      background: 'getBackground'
+    })
   }
 }
 </script>

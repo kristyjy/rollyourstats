@@ -574,27 +574,17 @@ const state = {
 }
 
 const getters = {
-  getStats(state) {
-    return {
-      str: state.str,
-      dex: state.dex,
-      con: state.con,
-      int: state.int,
-      wis: state.wis,
-      cha: state.cha
-    }
+  getClasses(state) {
+    return state.classes;
   },
-  getClass(state) {
-    return state.class;
+  getRaces(state) {
+    return state.races;
   },
-  getRace(state) {
-    return state.race;
+  getAlignments(state) {
+    return state.alignments;
   },
-  getBackground(state) {
-    return state.background;
-  },
-  getAlignment(state) {
-    return state.alignment;
+  getBackgrounds(state) {
+    return state.backgrounds;
   }
 }
 

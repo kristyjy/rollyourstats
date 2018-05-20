@@ -7,7 +7,7 @@
 
 <script>
 import Button from './Button.vue';
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import * as dice from '../utils/random';
 
 export default {
@@ -15,13 +15,20 @@ export default {
   components: {
     Button
   },
+  computed: {
+    ...mapGetters({
+      backgrounds: 'getBackgrounds',
+    })
+  },
   methods: {
     ...mapActions([
-      'setStats'
+      'setStats',
+      'setBackground'
     ]),
     onRollCharacter(e) {
       e.preventDefault();
       this.setStats(dice.rollStats());
+      this.setBackground(dice.getRandomBackground(this.backgrounds));
     }
   }
 }

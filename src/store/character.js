@@ -1,7 +1,7 @@
 const state = {
   class: '',
   race: '',
-  background: '',
+  background: null,
   alignment: '',
   str: 0,
   dex: 0,
